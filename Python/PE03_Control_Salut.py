@@ -65,7 +65,7 @@ while True:
             except ValueError:
                 print("Error: format numèric invàlid. Torna-ho a provar.")
 
-        print("✅ Dades introduïdes correctament.\n")
+        print("Dades introduïdes correctament.\n")
 
     # OPCIÓN B: MODIFICAR DATOS EXISTENTES
     elif eleccio == "b":
