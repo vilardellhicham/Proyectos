@@ -1,17 +1,23 @@
+import time
 # funcion para el calefactor
 def calefactor():
     print("\nSISTEMA DE CALEFACCION AUTOMATICO")
     min_temp = float(input("Temperatura minima: "))
     max_temp = float(input("Temperatura maxima: "))
     temp_actual = float(input("Temperatura actual: "))
-
-    if temp_actual < min_temp:
-        print("El calefactor esta encendido.")
-    elif temp_actual >= max_temp:
-        print("El calefactor esta apagado.")
+    
+    if temp_actual <= min_temp or temp_actual >= max_temp:
+        print ("La temperatura esta fuera de los rangos")
+        while temp_actual <= min_temp:
+            print (f"La calefaccion se ha encendido, la temperatura es de {temp_actual}")
+            temp_actual += 1
+            time.sleep (0.5)
+        while temp_actual >= max_temp:
+            print (f"La calefaccion se ha se ha apagado, la temperatura es de {temp_actual}")
+            temp_actual -= 0.5
+            time.sleep (0.5)
     else:
-        print("La temperatura esta bien.")
-
+        print ("La temperatura esta dentro del rango")
 # funcion para la alarma de co2
 def alarma_co2():
     print("\nSISTEMA DE ALARMA DE CO2")
@@ -25,13 +31,16 @@ def alarma_co2():
 
 # funcion para la puerta con face id
 def puerta_faceid():
+    Cara1 = ("Izan")
+    Cara2 = ("Oleguer")
+    Cara3 = ("Adria")
+    Cara4 = ("Daniel")
     print("\nSISTEMA DE PUERTA CON FACE ID")
-    rostros_autorizados = ["Izan", "Oleguer", "Adria", "Daniel"]
-    print("Personas autorizadas:", rostros_autorizados)
+    print(f"Personas autorizadas:, {Cara1}, {Cara2}, {Cara3}, {Cara4}")
 
     nombre = input("Ingrese el nombre detectado: ")
 
-    if nombre in rostros_autorizados:
+    if nombre in {Cara1} or {Cara2} or {Cara3} or {Cara4}:
         print("Acceso permitido a", nombre)
     else:
         print("Acceso denegado, no estas en la lista.")
